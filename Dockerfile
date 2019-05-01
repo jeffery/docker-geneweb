@@ -38,6 +38,6 @@ EXPOSE 2316
 # Run the container as the geneweb user
 USER geneweb
 
-ENTRYPOINT ["/usr/local/bin/main.sh"]
+ENTRYPOINT ["main.sh"]
 CMD ["bootstrap"]
 
