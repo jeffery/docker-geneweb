@@ -1,4 +1,4 @@
-# [Dockerized](https://www.docker.com/) [Geneweb](https://geneweb.tuxfamily.org/wiki/GeneWeb) [container](https://www.docker.com/resources/what-container)
+# [Dockerized](https://www.docker.com/) [Geneweb](https://geneweb.tuxfamily.org/wiki/GeneWeb)
 
 GeneWeb is a free multi-platform genealogy software tool created and owned by Daniel de Rauglaudre of INRIA. GeneWeb is 
 accessed by a Web browser, either off-line or as a server in a Web environment.
