@@ -6,7 +6,7 @@ PORTAL_PORT=2317
 SETUP_PORT=2316
 
 
-function buildDocker()
+function buildContainer()
 {
     docker build -t jeffernz/geneweb:latest -t jeffernz/geneweb:0.1 .
 }
@@ -36,7 +36,7 @@ EOT
 
 }
 
-function runDocker()
+function runContainer()
 {
     # Create the database directory
     mkdir -p ${HOME}/GenealogyData
@@ -56,25 +56,34 @@ function runDocker()
     jeffernz/geneweb:latest && stopInstructions
 }
 
+function stopContainer()
+{
+    docker stop jeffernz-geneweb
+}
+
 case "$1" in
         build)
-            buildDocker
+            buildContainer
             ;;
 
         run)
-            runDocker
+            runContainer
+            ;;
+
+        stop)
+            stopContainer
             ;;
 
         build-run)
-            buildDocker && runDocker
+            buildContainer && runContainer
             ;;
 
         bootstrap)
-            checkoutRepo && pushd docker-geneweb 1> /dev/null && buildDocker && popd 1> /dev/null && runDocker
+            checkoutRepo && pushd docker-geneweb 1> /dev/null && buildContainer && popd 1> /dev/null && runContainer
             ;;
 
         *)
-            echo $"Usage: $0 {build|run|build-run|bootstrap}"
+            echo $"Usage: $0 {build|run|build-run|bootstrap|stop}"
             exit 1
 
 esac
