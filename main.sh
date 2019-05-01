@@ -5,11 +5,12 @@ set -e
 PORTAL_PORT=2317
 SETUP_PORT=2316
 DATA_HOME=${HOME}/GenealogyData
+PROJECT_RELEASE=0.2
 
 
 function buildContainer()
 {
-    docker build -t jeffernz/geneweb:latest -t jeffernz/geneweb:0.1 .
+    docker build -t jeffernz/geneweb:latest -t jeffernz/geneweb:${PROJECT_RELEASE} .
 }
 
 function checkoutRepo()
