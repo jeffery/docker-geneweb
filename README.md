@@ -29,7 +29,7 @@ docker run -d \
 
 ## Running from source repository
 
-Ensure you have Git and [docker environment](https://www.docker.com/products/docker-desktop) setup on your desktop/server
+Ensure you have [Git](https://git-scm.com/) and [docker environment](https://www.docker.com/products/docker-desktop) setup on your desktop/server
 
 ### Download source, build and run
 
