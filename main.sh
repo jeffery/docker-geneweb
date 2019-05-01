@@ -8,7 +8,7 @@ SETUP_PORT=2316
 
 function buildDocker()
 {
-    docker build -t jeffernz/geneweb:latest .
+    docker build -t jeffernz/geneweb:latest -t jeffernz/geneweb:0.1 .
 }
 
 function checkoutRepo()
