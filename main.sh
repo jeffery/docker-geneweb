@@ -43,7 +43,9 @@ function runContainer()
     mkdir -p ${DATA_HOME}
 
     # Remove any running/old containers
+    set +e
     docker rm jeffernz-geneweb 2>/dev/null
+    set -e
 
     # Run the container in detached mode
     docker run \
