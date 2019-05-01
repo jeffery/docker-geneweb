@@ -29,17 +29,17 @@ case "$1" in
             startSetup
             ;;
 
-        backup)
-            runBackup
-            ;;
-
-        bootstrap)
+        start-all)
             startSetup &
             startPortal
             ;;
 
+        backup)
+            runBackup
+            ;;
+
         *)
-            echo $"Usage: $0 {start-portal|start-setup|status|backup|bootstrap}"
+            echo $"Usage: $0 {start-portal|start-setup|start-all|backup}"
             exit 1
 
 esac

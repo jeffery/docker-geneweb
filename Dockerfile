@@ -39,5 +39,5 @@ EXPOSE 2316
 USER geneweb
 
 ENTRYPOINT ["main.sh"]
-CMD ["bootstrap"]
+CMD ["start-all"]
 
