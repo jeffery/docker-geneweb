@@ -18,7 +18,7 @@ function runDocker()
     mkdir -p ${HOME}/GenealogyData &&
     docker rm jeffernz-geneweb 2>/dev/null &&
     docker run \
-    -p 9316:2316 -p 9317:2317 \
+    -p 2316:2316 -p 2317:2317 \
     -v ${HOME}/GenealogyData:/usr/local/var/geneweb/ \
     --env HOST_IP=172.17.0.1 \
     --env LANGUAGE=en \
