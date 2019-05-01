@@ -20,7 +20,11 @@ desktop/server. For this we can pick a location in your home directory. e.g. `${
 To launch the container, execute the following in your favourite shell:
 
 ```
-docker run -d --name jeffernz-geneweb -p 2316:2316 -p 2317:2317 -v ${HOME}/GenealogyData:/usr/local/var/geneweb jeffernz/geneweb:latest
+docker run -d \
+    --name jeffernz-geneweb \
+    -p 2316:2316 -p 2317:2317 \
+    -v ${HOME}/GenealogyData:/usr/local/var/geneweb \
+    jeffernz/geneweb:latest
 ```
 
 ## Running from source repository
@@ -28,8 +32,13 @@ docker run -d --name jeffernz-geneweb -p 2316:2316 -p 2317:2317 -v ${HOME}/Genea
 Ensure you have Git and [docker environment](https://www.docker.com/products/docker-desktop) setup on your desktop/server
 
 ### Download source, build and run
+
 ```
-curl https://raw.githubusercontent.com/jeffery/docker-geneweb/master/main.sh -o main.sh  && bash main.sh bootstrap
+git checkout https://github.com/jeffery/docker-geneweb.git && cd docker-geneweb
+```
+
+```
+bash main.sh build-run
 ```
 
 Geneweb portal should be running at http://localhost:2317 and setup portal available at http://localhost:2316
@@ -37,8 +46,18 @@ Geneweb portal should be running at http://localhost:2317 and setup portal avail
 ## Shutdown
 To shutdown the container just run
 
-```docker stop geneweb```
+```docker stop jeffernz-geneweb```
 
 Cleanup the launched container
 
-```docker rm geneweb```
+```docker rm jeffernz-geneweb```
+
+## Backup
+
+To obtain a backup of all the databases in your running GeneWeb container, you can execute
+
+```
+docker exec -it jeffernz-geneweb backup.sh
+```
+
+The backup will be stored in your home directory under `${HOME}/GenealogyData/backup`
