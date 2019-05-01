@@ -1,2 +1,44 @@
-# docker-geneweb
-Dockerized container for Geneweb https://geneweb.tuxfamily.org/wiki/GeneWeb
+# Dockerized [Geneweb](https://geneweb.tuxfamily.org/wiki/GeneWeb) [container](https://www.docker.com/resources/what-container)
+
+GeneWeb is a free multi-platform genealogy software tool created and owned by Daniel de Rauglaudre of INRIA. GeneWeb is 
+accessed by a Web browser, either off-line or as a server in a Web environment.
+
+## Running from pre-compiled docker image
+
+Ensure you have [docker environment](https://www.docker.com/products/docker-desktop) setup on your desktop/server
+
+### Download the docker image
+```
+docker pull jeffernz/geneweb:latest
+```
+
+### Running the docker image
+
+When running the geneweb dockerized container, you will need a location to save your geneweb databases on you local 
+desktop/server. For this we can pick a location in your home directory. e.g. `${HOME}/GenealogyData`
+
+To launch the container, execute the following in your favourite shell:
+
+```
+docker run -d --name jeffernz-geneweb -p 2316:2316 -p 2317:2317 -v ${HOME}/GenealogyData:/usr/local/var/geneweb jeffernz/geneweb:latest
+```
+
+## Running from source repository
+
+Ensure you have Git and [docker environment](https://www.docker.com/products/docker-desktop) setup on your desktop/server
+
+### Download source, build and run
+```
+curl https://raw.githubusercontent.com/jeffery/docker-geneweb/master/main.sh -o main.sh  && bash main.sh bootstrap
+```
+
+Geneweb portal should be running at http://localhost:2317 and setup portal available at http://localhost:2316
+
+## Shutdown
+To shutdown the container just run
+
+```docker stop geneweb```
+
+Cleanup the launched container
+
+```docker rm geneweb```
