@@ -2,6 +2,9 @@
 
 set -e
 
+PORTAL_PORT=2317
+SETUP_PORT=2316
+
 
 function buildDocker()
 {
@@ -13,17 +16,39 @@ function checkoutRepo()
     git clone https://github.com/jeffery/docker-geneweb.git
 }
 
+function stopInstructions()
+{
+
+    cat <<EOT
+##############################################################################
+#                                                                            #
+#  Your GeneWeb docker container is now up and running.                      #
+#                                                                            #
+#    Access to the GeneWeb Portal is at http://localhost:${PORTAL_PORT}                #
+#                                                                            #
+#    Access to the Setup Portal is at http://localhost:${SETUP_PORT}                  #
+#                                                                            #
+#  To stop the docker container, execute: 'docker stop jeffernz-geneweb'     #
+#                                                                            #
+##############################################################################
+
+EOT
+
+}
+
 function runDocker()
 {
-    mkdir -p ${HOME}/GenealogyData &&
-    docker rm jeffernz-geneweb 2>/dev/null &&
+    mkdir -p ${HOME}/GenealogyData
+    docker rm jeffernz-geneweb 2>/dev/null
     docker run \
-    -p 2316:2316 -p 2317:2317 \
+    -d=true \
+    -p ${SETUP_PORT}:2316 \
+    -p ${PORTAL_PORT}:2317 \
     -v ${HOME}/GenealogyData:/usr/local/var/geneweb/ \
     --env HOST_IP=172.17.0.1 \
     --env LANGUAGE=en \
     --name jeffernz-geneweb \
-    jeffernz/geneweb:latest
+    jeffernz/geneweb:latest && stopInstructions
 }
 
 case "$1" in
