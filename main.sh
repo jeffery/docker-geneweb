@@ -38,8 +38,13 @@ EOT
 
 function runDocker()
 {
+    # Create the database directory
     mkdir -p ${HOME}/GenealogyData
+
+    # Remove any running/old containers
     docker rm jeffernz-geneweb 2>/dev/null
+
+    # Run the container in detached mode
     docker run \
     -d=true \
     -p ${SETUP_PORT}:2316 \
