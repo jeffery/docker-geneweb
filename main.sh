@@ -4,6 +4,7 @@ set -e
 
 PORTAL_PORT=2317
 SETUP_PORT=2316
+DATA_HOME=${HOME}/GenealogyData
 
 
 function buildContainer()
@@ -39,7 +40,7 @@ EOT
 function runContainer()
 {
     # Create the database directory
-    mkdir -p ${HOME}/GenealogyData
+    mkdir -p ${DATA_HOME}
 
     # Remove any running/old containers
     docker rm jeffernz-geneweb 2>/dev/null
@@ -49,7 +50,7 @@ function runContainer()
     -d=true \
     -p ${SETUP_PORT}:2316 \
     -p ${PORTAL_PORT}:2317 \
-    -v ${HOME}/GenealogyData:/usr/local/var/geneweb/ \
+    -v ${DATA_HOME}:/usr/local/var/geneweb/ \
     --env HOST_IP=172.17.0.1 \
     --env LANGUAGE=en \
     --name jeffernz-geneweb \
