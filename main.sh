@@ -37,15 +37,20 @@ EOT
 
 }
 
+function removeContainer()
+{
+    set +e
+    docker rm jeffernz-geneweb 2>/dev/null
+    set -e
+}
+
 function runContainer()
 {
     # Create the database directory
     mkdir -p ${DATA_HOME}
 
     # Remove any running/old containers
-    set +e
-    docker rm jeffernz-geneweb 2>/dev/null
-    set -e
+    removeContainer
 
     # Run the container in detached mode
     docker run \
