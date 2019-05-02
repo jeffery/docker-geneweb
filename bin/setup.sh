@@ -6,9 +6,6 @@ pushd ${HOME} 1> /dev/null
        echo "${HOST_IP}" > ${HOME}/gwsetup_only.txt
     fi
 
-    umask 007
-    TEMP_FILE=`tempfile`
-
-    gwsetup -p 2316 -gd /usr/share/geneweb -lang ${LANGUAGE} -bindir /usr/bin -only ${HOME}/gwsetup_only.txt -log ${TEMP_FILE} 2>&1 | tee -a ${HOME}/gwsetup.log
+    gwsetup -p 2316 -gd /usr/share/geneweb -lang ${LANGUAGE} -bindir /usr/bin -only ${HOME}/gwsetup_only.txt -log /dev/null 2>&1 | tee -a ${HOME}/gwsetup.log
 
 popd 1> /dev/null
