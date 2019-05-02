@@ -6,7 +6,7 @@ PORTAL_PORT=2317
 SETUP_PORT=2316
 DATA_HOME=${HOME}/GenealogyData
 PROJECT_NAME=jeffernz-geneweb
-PROJECT_RELEASE=0.2
+PROJECT_RELEASE=0.3
 
 function containerName()
 {
