@@ -5,8 +5,13 @@ set -e
 PORTAL_PORT=2317
 SETUP_PORT=2316
 DATA_HOME=${HOME}/GenealogyData
+PROJECT_NAME=jeffernz-geneweb
 PROJECT_RELEASE=0.2
 
+function containerName()
+{
+    echo "${PROJECT_NAME}_${PROJECT_RELEASE}"
+}
 
 function buildContainer()
 {
@@ -30,7 +35,7 @@ function stopInstructions()
 #                                                                            #
 #    Access to the Setup Portal is at http://localhost:${SETUP_PORT}                  #
 #                                                                            #
-#  To stop the docker container, execute: 'docker stop jeffernz-geneweb'     #
+#  To stop the docker container, execute: 'docker stop $(containerName)' #
 #                                                                            #
 ##############################################################################
 
@@ -41,7 +46,7 @@ EOT
 function removeContainer()
 {
     set +e
-    docker rm jeffernz-geneweb 2>/dev/null
+    docker rm $(containerName) 2>/dev/null
     set -e
 }
 
@@ -61,13 +66,13 @@ function runContainer()
     -v ${DATA_HOME}:/usr/local/var/geneweb/ \
     --env HOST_IP=172.17.0.1 \
     --env LANGUAGE=en \
-    --name jeffernz-geneweb \
+    --name $(containerName) \
     jeffernz/geneweb:latest && stopInstructions
 }
 
 function stopContainer()
 {
-    docker stop jeffernz-geneweb
+    docker stop $(containerName)
 }
 
 case "$1" in
