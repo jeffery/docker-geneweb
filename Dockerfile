@@ -17,10 +17,10 @@ ENV LANGUAGE en
 ENV HOST_IP 172.17.0.1
 
 # Copy script to local bin folder
-COPY bin/main.sh bin/setup.sh bin/backup.sh /usr/local/bin/
+COPY bin/*.sh /usr/local/bin/
 
 # Make script executable
-RUN chmod a+x /usr/local/bin/main.sh /usr/local/bin/setup.sh /usr/local/bin/backup.sh
+RUN chmod a+x /usr/local/bin/*.sh
 
 # Share the local volume onto the container
 VOLUME ${GENEWEB_HOME}
