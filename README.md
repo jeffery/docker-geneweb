@@ -34,8 +34,7 @@ Ensure you have [Git](https://git-scm.com/) and [docker environment](https://www
 ### Download source, build and run
 
 ```
-git clone https://github.com/jeffery/docker-geneweb.git
-cd docker-geneweb
+git clone https://github.com/jeffery/docker-geneweb.git && cd docker-geneweb
 ```
 
 ```
