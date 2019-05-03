@@ -25,9 +25,6 @@ RUN chmod a+x /usr/local/bin/*.sh
 # Share the local volume onto the container
 VOLUME ${GENEWEB_HOME}
 
-# Setup the gwsetup allowed host ip-address
-RUN echo ${HOST_IP} > ${GENEWEB_HOME}/gwsetup_only.txt
-
 # Change the geneweb home directory to our database path to avoid stomping on debian package path /var/lib/geneweb
 RUN usermod -d ${GENEWEB_HOME} geneweb
 
