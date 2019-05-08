@@ -15,7 +15,7 @@ docker pull jeffernz/geneweb:latest
 ### Running the docker image
 
 When running the geneweb dockerized container, you will need a location to save your geneweb databases on you local 
-desktop/server. For this we can pick a location in your home directory. e.g. `${HOME}/GenealogyData`
+desktop/server. For this we can pick a location in your home directory. e.g. `~/GenealogyData`
 
 To launch the container, execute the following in your favourite shell:
 
@@ -23,7 +23,7 @@ To launch the container, execute the following in your favourite shell:
 docker run -d \
     --name jeffernz-geneweb \
     -p 2316:2316 -p 2317:2317 \
-    -v ${HOME}/GenealogyData:/usr/local/var/geneweb \
+    -v ~/GenealogyData:/usr/local/var/geneweb \
     jeffernz/geneweb:latest
 ```
 
@@ -60,4 +60,4 @@ To obtain a backup of all the databases in your running GeneWeb container, you c
 docker exec -it jeffernz-geneweb backup.sh
 ```
 
-The backup will be stored in your home directory under `${HOME}/GenealogyData/backup`
+The backup will be stored in your home directory under `~/GenealogyData/backup`
