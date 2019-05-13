@@ -61,6 +61,7 @@ function runContainer()
     # Run the container in detached mode
     docker run \
     -d=true \
+    --restart unless-stopped \
     -p ${SETUP_PORT}:2316 \
     -p ${PORTAL_PORT}:2317 \
     -v ${DATA_HOME}:/usr/local/var/geneweb/ \

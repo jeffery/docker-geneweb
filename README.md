@@ -22,6 +22,7 @@ To launch the container, execute the following in your favourite shell:
 ```
 docker run -d \
     --name jeffernz-geneweb \
+    --restart unless-stopped \
     -p 2316:2316 -p 2317:2317 \
     -v ~/GenealogyData:/usr/local/var/geneweb \
     jeffernz/geneweb:latest
