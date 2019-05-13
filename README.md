@@ -28,6 +28,12 @@ docker run -d \
     jeffernz/geneweb:latest
 ```
 
+If you need to run GeneWeb in a different timezone, add the environment variable `TZ` in the above command. e.g.
+
+```
+--env TZ=Australia/Melbourne
+```
+
 ## Running from source repository
 
 Ensure you have [Git](https://git-scm.com/) and [docker environment](https://www.docker.com/products/docker-desktop) setup on your desktop/server

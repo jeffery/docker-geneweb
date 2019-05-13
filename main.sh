@@ -6,7 +6,7 @@ PORTAL_PORT=2317
 SETUP_PORT=2316
 DATA_HOME=${HOME}/GenealogyData
 PROJECT_NAME=jeffernz-geneweb
-PROJECT_RELEASE=0.7
+PROJECT_RELEASE=0.8
 
 function containerName()
 {
@@ -67,6 +67,7 @@ function runContainer()
     -v ${DATA_HOME}:/usr/local/var/geneweb/ \
     --env HOST_IP=172.17.0.1 \
     --env LANGUAGE=en \
+    --env TZ=Australia/Melbourne \
     --name $(containerName) \
     jeffernz/geneweb:latest && stopInstructions
 }

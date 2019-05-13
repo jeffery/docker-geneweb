@@ -4,7 +4,7 @@ MAINTAINER Jeffery Fernandez <jefferyfernandez@gmail.com>
 
 RUN \
   apt-get update && \
-  apt-get -y install --no-install-recommends geneweb gwsetup && \
+  apt-get -y install --no-install-recommends geneweb gwsetup tzdata && \
   rm -fr /var/lib/apt/lists/*
 
 # The database path and home directory of geneweb
