@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 PROJECT_NAME=jeffernz-geneweb
 PROJECT_RELEASE=0.8
@@ -124,6 +124,7 @@ while getopts ":hbrzk" opt; do
     b ) buildContainer; exit $? ;;
 
     r | z )
+        command=${opt}
         while getopts ":l:t:i:w:s:b:" opt; do
             case ${opt} in
                 l ) LANGUAGE=$OPTARG ;;
@@ -144,7 +145,7 @@ while getopts ":hbrzk" opt; do
             esac
         done
 
-        if [[ ${opt} -eq "r" ]]; then
+        if [[ "${command}" = "r" ]]; then
             runContainer
         else
             buildContainer && runContainer
