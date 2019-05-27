@@ -57,7 +57,7 @@ git clone https://github.com/jeffery/docker-geneweb.git && cd docker-geneweb
 ```
 
 ```
-./main.sh build-run
+./main.sh -z
 ```
 
 Geneweb portal should be running at http://localhost:2317 and setup portal available at http://localhost:2316
