@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  portal:
+    image: jeffernz/geneweb:latest
+    volumes:
+      - bases:/root
+    ports:
+      - "2317:2317"
+    entrypoint:
+      - main.sh
+      - start-portal
+
+  setup:
+    image: jeffernz/geneweb:latest
+    volumes:
+      - bases:/root
+    ports:
+      - "2316:2316"
+    environment:
+      HOST_IP: "172.18.0.1"
+    entrypoint:
+      - main.sh
+      - start-setup
+
+volumes:
+  bases:
