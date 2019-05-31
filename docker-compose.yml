@@ -10,6 +10,8 @@ services:
     entrypoint:
       - main.sh
       - start-portal
+    env_file:
+      - .env
 
   setup:
     image: jeffernz/geneweb:latest
@@ -20,6 +22,8 @@ services:
     entrypoint:
       - main.sh
       - start-setup
+    env_file:
+      - .env
 
 volumes:
   bases:
