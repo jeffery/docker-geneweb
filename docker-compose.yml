@@ -4,7 +4,7 @@ services:
   portal:
     image: jeffernz/geneweb:latest
     volumes:
-      - bases:/root
+      - bases:/usr/local/var/geneweb
     ports:
       - "2317:2317"
     entrypoint:
@@ -14,7 +14,7 @@ services:
   setup:
     image: jeffernz/geneweb:latest
     volumes:
-      - bases:/root
+      - bases:/usr/local/var/geneweb
     ports:
       - "2316:2316"
     environment:
@@ -25,3 +25,7 @@ services:
 
 volumes:
   bases:
+    driver_opts:
+      type: none
+      device: $HOME/GenealogyData
+      o: bind
