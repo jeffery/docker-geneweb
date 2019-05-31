@@ -7,9 +7,6 @@ RUN \
   apt-get -y install --no-install-recommends geneweb gwsetup tzdata && \
   rm -fr /var/lib/apt/lists/*
 
-# The database path and home directory of geneweb
-ENV GENEWEB_HOME /usr/local/var/geneweb
-
 # Default language to be English
 ENV LANGUAGE en
 
@@ -22,11 +19,11 @@ COPY bin/*.sh /usr/local/bin/
 # Make script executable
 RUN chmod a+x /usr/local/bin/*.sh
 
-# Share the local volume onto the container
-VOLUME ${GENEWEB_HOME}
+# Create a volume on the container
+VOLUME /usr/local/var/geneweb
 
 # Change the geneweb home directory to our database path to avoid stomping on debian package path /var/lib/geneweb
-RUN usermod -d ${GENEWEB_HOME} geneweb
+RUN usermod -d /usr/local/var/geneweb geneweb
 
 # Expose the geneweb and gwsetup ports to the docker host
 EXPOSE 2317
@@ -37,4 +34,3 @@ USER geneweb
 
 ENTRYPOINT ["main.sh"]
 CMD ["start-all"]
-
