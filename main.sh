@@ -7,7 +7,7 @@ PROJECT_RELEASE=0.9
 
 WEB_PORT=2317
 SETUP_PORT=2316
-DATA_HOME=~/GenealogyData
+DATA_HOME=${HOME}/GenealogyData
 LANGUAGE="en"
 HOST_IP="172.17.0.1"
 TIME_ZONE="Australia/Melbourne"
