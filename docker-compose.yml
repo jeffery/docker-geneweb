@@ -10,6 +10,9 @@ services:
     entrypoint:
       - main.sh
       - start-portal
+    env_file:
+      - etc/common.env
+      - etc/portal.env
 
   setup:
     image: jeffernz/geneweb:latest
@@ -17,11 +20,12 @@ services:
       - bases:/usr/local/var/geneweb
     ports:
       - "2316:2316"
-    environment:
-      HOST_IP: "172.18.0.1"
     entrypoint:
       - main.sh
       - start-setup
+    env_file:
+      - etc/common.env
+      - etc/setup.env
 
 volumes:
   bases:
