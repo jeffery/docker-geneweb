@@ -6,26 +6,20 @@ services:
     volumes:
       - bases:/usr/local/var/geneweb
     ports:
-      - "2317:2317"
+      - ${PORTAL_PORT}:2317
     entrypoint:
       - main.sh
       - start-portal
-    env_file:
-      - etc/common.env
-      - etc/portal.env
 
   setup:
     image: jeffernz/geneweb:latest
     volumes:
       - bases:/usr/local/var/geneweb
     ports:
-      - "2316:2316"
+      - ${SETUP_PORT}:2316
     entrypoint:
       - main.sh
       - start-setup
-    env_file:
-      - etc/common.env
-      - etc/setup.env
 
 volumes:
   bases:
