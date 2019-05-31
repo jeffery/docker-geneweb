@@ -12,6 +12,7 @@ services:
       - start-portal
     env_file:
       - .env
+    restart: always
 
   setup:
     image: jeffernz/geneweb:latest
@@ -24,6 +25,7 @@ services:
       - start-setup
     env_file:
       - .env
+    restart: always
 
 volumes:
   bases:
