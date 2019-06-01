@@ -73,7 +73,7 @@ Cleanup the launched container
 
 ```docker rm jeffernz-geneweb```
 
-## Backup
+## Export as GEDCOM
 
 To obtain a backup of all the databases in your running GeneWeb container, you can execute
 
@@ -82,3 +82,16 @@ docker exec -it jeffernz-geneweb backup.sh
 ```
 
 The backup will be stored in your home directory under `~/GenealogyData/backup`
+
+## Import from GEDCOM
+
+To import a GEDCOM file into GeneWeb, place the GEDCOM file under `~/GenealogyData/import`
+and then execute the import command on the running instance. e.g.
+
+```
+docker exec -it jeffernz-geneweb import.sh
+```
+
+This will import the GEDCOM file into GeneWeb. Note, all GEDCOM files in the import
+folder will be imported. Make sure you remove older files to prevent the database
+from being overwritten.
