@@ -8,6 +8,20 @@ function startPortal()
     gwd -lang ${LANGUAGE} -bd ${HOME} -hd /usr/share/geneweb -dd /usr/share/doc/geneweb -p 2317 -log ${HOME}/geneweb.log
 }
 
+function ensureBackupPathExists()
+{
+    if [[ ! -d backup ]]; then
+        mkdir -p backup
+    fi
+}
+
+function ensureImportPathExists()
+{
+    if [[ ! -d import ]]; then
+        mkdir -p import
+    fi
+}
+
 function startSetup()
 {
     pushd ${HOME} 1> /dev/null
@@ -15,6 +29,9 @@ function startSetup()
         if [[ -n "${HOST_IP}" ]]; then
            echo "${HOST_IP}" > ${HOME}/gwsetup_only.txt
         fi
+
+        ensureBackupPathExists
+        ensureImportPathExists
 
         DEFAULT_CONFIG="${HOME}/default.gwf"
         if [[ ! -f ${DEFAULT_CONFIG} ]]; then
