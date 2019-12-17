@@ -1,0 +1,58 @@
+encoding: utf-8
+
+fam Shakespeare John +~1557 Arden Mary
+beg
+- f Joan 9/1558 !15/9/1558 >9/1558
+- f Margaret 11/1562 !2/12/1562 4/1563 #buri 30/4/1563
+- h William #src https://webtreeprint.com/tp\_famous\_gedcoms.php <23/4/1564 #bp Stratford-upon-Avon !26/4/1564 #pp Stratford-upon-Avon 23/4/1616 #dp Stratford-upon-Avon
+- h Gilbert 10/1566 1/1612
+- f Joan.1 4/1569 11/1646
+- f Anne 9/1571 4/1579
+- h Richard 3/1574 2/1613
+- h Edmund 4/1580 12/1607
+end
+
+fam Shakespeare William +11/1582 Hathaway Anne
+cbp Stratford-upon-Avon
+beg
+- f Susanna 5/1583 !26/5/1583 #pp Stratford-upon-Avon 11/7/1649 #dp Stratford-upon-Avon
+- h Hamnet 1/1585 !2/2/1585 #pp Stratford-upon-Avon 8/1596 #dp Stratford-upon-Avon #buri 11/8/1596 #rp Stratford-upon-Avon
+- f Judith 1/1585 !2/2/1585 #pp Stratford-upon-Avon 2/1662 #dp Stratford-upon-Avon #buri 9/2/1662 #rp Stratford-upon-Avon
+end
+
+fam Arden Robert 0 12/1556 + Webbe Agnes 0
+beg
+- f Mary ~1537 9/1608
+end
+
+fam Shakespeare Richard.1 ~1490 <10/2/1561 + Unknown x 0
+beg
+- h Henry 0 1596
+- h John ~1531 7/9/1601 #buri 8/9/1601
+end
+
+fam Hathaway Richard 0 9/1581 + ? ?
+beg
+- f Anne 4/1556 #bp Shottery,_Warwickshire 6/8/1623 #dp Stratford-upon-Avon
+end
+
+fam Hall John [:Dr.:] 1575 11/1635 +5/6/1607 #mp Stratford-upon-Avon Shakespeare Susanna
+beg
+- f Elizabeth Shakespeare 2/1608 !21/2/1608 #pp Stratford-upon-Avon 2/1670
+end
+
+fam Quiney Thomas 1589 ~1655 +10/2/1616 #mp Stratford-upon-Avon Shakespeare Judith
+beg
+- h Shakespeare 11/1616 !23/11/1616 5/1617 #buri 8/5/1617
+- h Richard 2/1618 !9/2/1618 2/1639 #buri 6/2/1639
+- h Thomas.1 1/1620 !23/1/1620 1/1639 #buri 28/1/1639
+end
+fam Quiney Thomas + #nm Wheeler Margaret 0 0 #dp Died_in_childbirth #buri 15/3/1616
+beg
+- Not_named 0 0 #dp Died_in_childbirth #buri 15/3/1616
+end
+
+fam Shakespeare Henry + ? Margaret 0 1597
+
+fam Nash Thomas 1593 4/1647 +1626 Shakespeare Elizabeth
+fam Barnard John [:Sir:] 0 1674 +1649 Shakespeare Elizabeth
