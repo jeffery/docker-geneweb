@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # copy from rom docker ps, usually jeffernz-geneweb or jeffernz-geneweb_1.2
-CONTAINER=jeffernz-geneweb
+CONTAINER=jeffernz-geneweb_1.2
 
 docker cp examples/shakespeare.ged $CONTAINER:/usr/local/var/geneweb/import/
 docker cp examples/shakespeare.gw $CONTAINER:/usr/local/var/geneweb/import/
