@@ -19,11 +19,14 @@ COPY bin/*.sh /usr/local/bin/
 # Make script executable
 RUN chmod a+x /usr/local/bin/*.sh
 
-# Create a volume on the container
-VOLUME /usr/local/var/geneweb
-
 # Change the geneweb home directory to our database path to avoid stomping on debian package path /var/lib/geneweb
 RUN usermod -d /usr/local/var/geneweb geneweb
+
+# Ensure that the geneweb database dir exists and is owned by the geneweb user
+RUN mkdir -p /usr/local/var/geneweb && chown geneweb /usr/local/var/geneweb
+
+# Create a volume on the container
+VOLUME /usr/local/var/geneweb
 
 # Expose the geneweb and gwsetup ports to the docker host
 EXPOSE 2317
