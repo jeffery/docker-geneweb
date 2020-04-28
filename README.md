@@ -95,3 +95,32 @@ docker exec -it jeffernz-geneweb import.sh
 This will import the GEDCOM file into GeneWeb. Note, all GEDCOM files in the import
 folder will be imported. Make sure you remove older files to prevent the database
 from being overwritten.
+
+## Export from Geneweb.gw (with Pictures)
+
+To obtain a backup of all the databases with Picture in your running GeneWeb container, you can execute
+
+```
+docker exec -it jeffernz-geneweb backup-gw.sh
+```
+
+The backup will be stored in your home directory under `~/GenealogyData/backup`
+
+
+## Import from GEDCOM (with Pictures)
+
+To import a Geneweb.gw file into GeneWeb, place the file.gw under `~/GenealogyData/import`
+and then execute the import command on the running instance. e.g.
+
+```
+docker exec -it jeffernz-geneweb import-gw.sh
+```
+
+
+## Example file
+
+To try the import export you can play wiht the shakespeare genealogy. Eventually edit the CONTAINER-ID 
+
+```
+./copy-examples.sh
+```
